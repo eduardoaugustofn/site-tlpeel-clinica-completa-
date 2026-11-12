@@ -1,0 +1,358 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Complete Peel: imersão em peelings químicos para médicos</title>
+  <meta name="description" content="Imersão presencial em peelings químicos, exclusiva para médicos: dois dias com hands-on e seis meses de mentoria, com o Dr. Gustavo Nogueira e a Dra. Raquel Iracema.">
+  <meta name="theme-color" content="#000000">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' fill='%23000'/%3E%3Ctext x='16' y='23.5' font-family='Didot,Bodoni 72,Georgia,serif' font-size='22' fill='%23fff' text-anchor='middle'%3EC%3C/text%3E%3C/svg%3E">
+
+  <!--
+    Tipografia da marca Complete Peel:
+    - Bodoni Moda: a serifa clássica de "COMPLETE" e dos títulos
+    - Ms Madi: a letra manuscrita de "peel"
+    - Hanken Grotesk: o texto corrido, para leitura
+  -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:opsz,wght@6..96,400..600&family=Hanken+Grotesk:wght@400;500;600;700&family=Ms+Madi&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css?v=3">
+
+  <!-- Liga a animação da logo só se o visitante não pediu "reduzir movimento" -->
+  <script>
+    if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+      document.documentElement.classList.add('motion');
+    }
+  </script>
+</head>
+<body>
+  <!--
+    IDIOMAS
+    O texto em português fica aqui no HTML. As traduções (inglês, espanhol e francês)
+    ficam em js/i18n.js, ligadas a cada trecho pelo atributo data-i18n="chave".
+    Ao mudar um texto aqui, mude também a mesma chave em js/i18n.js.
+
+    VERSÃO ANTERIOR
+    O site preto e laranja está guardado em versoes/preto-e-laranja/.
+  -->
+
+  <!-- Bandeiras usadas no botão de idiomas -->
+  <svg aria-hidden="true" width="0" height="0" style="position:absolute">
+    <symbol id="flag-br" viewBox="0 0 28 20">
+      <rect width="28" height="20" fill="#009c3b"/>
+      <path d="M14 2.6 25.4 10 14 17.4 2.6 10z" fill="#ffdf00"/>
+      <circle cx="14" cy="10" r="4.6" fill="#002776"/>
+      <path d="M9.7 8.6c3-.5 6.2.6 8.5 3" fill="none" stroke="#fff" stroke-width=".9"/>
+    </symbol>
+    <symbol id="flag-us" viewBox="0 0 28 20">
+      <rect width="28" height="20" fill="#b22234"/>
+      <path d="M0 2.31h28M0 5.38h28M0 8.46h28M0 11.54h28M0 14.62h28M0 17.69h28" stroke="#fff" stroke-width="1.54"/>
+      <rect width="11.2" height="10.77" fill="#3c3b6e"/>
+      <path d="M1.6 1.8h8M1.6 5.4h8M1.6 9h8M2.6 3.6h6M2.6 7.2h6" stroke="#fff" stroke-width=".9" stroke-linecap="round" stroke-dasharray="0 2"/>
+    </symbol>
+    <symbol id="flag-es" viewBox="0 0 28 20">
+      <rect width="28" height="20" fill="#aa151b"/>
+      <rect y="5" width="28" height="10" fill="#f1bf00"/>
+    </symbol>
+    <symbol id="flag-fr" viewBox="0 0 28 20">
+      <rect width="28" height="20" fill="#fff"/>
+      <rect width="9.34" height="20" fill="#0055a4"/>
+      <rect x="18.66" width="9.34" height="20" fill="#ef4135"/>
+    </symbol>
+  </svg>
+
+  <a class="skip" href="#apresentacao" data-i18n="skip">Pular para o conteúdo</a>
+
+  <!-- ============ MENU ============ -->
+  <!-- Começa preto porque a página abre sobre a abertura preta; o JavaScript ajusta ao rolar -->
+  <header class="nav dark">
+    <!-- Logo pequena: some enquanto a logo grande da abertura está na tela -->
+    <a class="nav__brand" href="#topo" aria-label="Voltar ao início" data-i18n-attr="aria-label:nav.home">
+      <span class="wm" aria-hidden="true"><span class="wm__c">COMPLETE</span><span class="wm__p">peel</span></span>
+    </a>
+    <nav class="nav__links" aria-label="Seções" data-i18n-attr="aria-label:nav.sections">
+      <a href="#apresentacao" data-i18n="nav.present">Apresentação</a>
+      <a href="#resultados" data-i18n="nav.results">Resultados</a>
+      <a href="#professores" data-i18n="nav.teachers">Professores</a>
+      <a href="#publicacoes" data-i18n="nav.papers">Publicações</a>
+      <a href="#imersao" data-i18n="nav.course">A imersão</a>
+      <a href="#inscricao" data-i18n="nav.signup">Inscrição</a>
+    </nav>
+
+    <!-- Botão de idiomas -->
+    <div class="lang">
+      <button class="lang__btn" type="button" aria-haspopup="true" aria-expanded="false" aria-controls="langMenu" aria-label="Idioma: Português">
+        <svg class="flag" aria-hidden="true"><use href="#flag-br"/></svg>
+        <span class="lang__code">PT</span>
+        <svg class="lang__caret" viewBox="0 0 12 12" aria-hidden="true"><path d="M2.5 4.5 6 8l3.5-3.5"/></svg>
+      </button>
+      <ul class="lang__menu" id="langMenu" hidden>
+        <li><button type="button" data-lang="pt" lang="pt-BR"><svg class="flag" aria-hidden="true"><use href="#flag-br"/></svg>Português</button></li>
+        <li><button type="button" data-lang="en" lang="en"><svg class="flag" aria-hidden="true"><use href="#flag-us"/></svg>English</button></li>
+        <li><button type="button" data-lang="es" lang="es"><svg class="flag" aria-hidden="true"><use href="#flag-es"/></svg>Español</button></li>
+        <li><button type="button" data-lang="fr" lang="fr"><svg class="flag" aria-hidden="true"><use href="#flag-fr"/></svg>Français</button></li>
+      </ul>
+    </div>
+
+    <a class="btn btn--solid btn--sm nav__cta" href="#" data-link="whatsapp" aria-label="Falar no WhatsApp" data-i18n-attr="aria-label:cta.whatsapp">WhatsApp</a>
+    <button class="nav__toggle" type="button" aria-expanded="false" aria-controls="menu" aria-label="Abrir menu">
+      <span></span><span></span>
+    </button>
+  </header>
+
+  <div class="menu" id="menu" aria-hidden="true">
+    <nav aria-label="Menu">
+      <a href="#apresentacao" data-i18n="nav.present">Apresentação</a>
+      <a href="#resultados" data-i18n="nav.results">Resultados</a>
+      <a href="#professores" data-i18n="nav.teachers">Professores</a>
+      <a href="#publicacoes" data-i18n="nav.papers">Publicações</a>
+      <a href="#imersao" data-i18n="nav.course">A imersão</a>
+      <a href="#inscricao" data-i18n="nav.signup">Inscrição</a>
+    </nav>
+  </div>
+
+  <main>
+    <!-- ============ ABERTURA: A LOGO SE ESCREVE COM A ROLAGEM ============
+         COMPLETE: cada letra sobe de trás de uma linha invisível.
+         peel: é revelado da esquerda para a direita, como uma caneta.
+         Sem animação (ou sem JavaScript), a logo aparece pronta. -->
+    <section class="hero dark" id="topo">
+      <div class="hero__stage">
+        <div class="hero__group">
+          <div class="mark" role="img" aria-label="Complete Peel">
+            <span class="mark__line" aria-hidden="true"><span class="ch">C</span><span class="ch">O</span><span class="ch">M</span><span class="ch">P</span><span class="ch">L</span><span class="ch">E</span><span class="ch">T</span><span class="ch">E</span></span>
+            <span class="mark__peel" aria-hidden="true">peel</span>
+          </div>
+
+          <div class="hero__headline">
+            <h1 data-i18n="hero.h1">A formação mais completa em peelings químicos do Brasil.</h1>
+            <p class="hero__lead" data-i18n="hero.lead">Dois dias de imersão presencial com hands-on e seis meses de mentoria para os seus primeiros pacientes.</p>
+            <div class="actions">
+              <a class="btn btn--solid" href="#" data-link="whatsapp" data-i18n="cta.whatsapp">Falar no WhatsApp</a>
+              <a class="btn btn--line" href="#apresentacao" data-i18n="hero.watch">Assistir à apresentação</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Primeira tela: diz o que é a página antes de a logo se escrever -->
+        <p class="hero__first" aria-hidden="true">
+          <strong data-i18n="hero.first.title">Imersão em peelings químicos para médicos</strong>
+          <span data-i18n="hero.first.hint">Role a página para continuar</span>
+        </p>
+      </div>
+    </section>
+
+    <!-- ============ VÍDEO DE APRESENTAÇÃO ============ -->
+    <section class="section" id="apresentacao">
+      <div class="wrap">
+        <header class="head">
+          <h2 data-i18n="present.h2">Apresentação do curso</h2>
+          <p data-i18n="present.lead">O que é a técnica TL&nbsp;Peel, explicada por quem a ensina.</p>
+        </header>
+
+        <div class="present">
+          <button class="video" type="button" data-video="apresentacao" data-title="Conheça a técnica TL Peel" data-i18n-attr="data-title:video.intro">
+            <span class="video__media"></span>
+            <span class="video__play" aria-hidden="true"></span>
+            <span class="video__caption">
+              <span class="video__title" data-i18n="video.intro">Conheça a técnica TL&nbsp;Peel</span>
+              <span class="video__state"></span>
+            </span>
+          </button>
+
+          <div class="present__text">
+            <p data-i18n="present.p1">Aprenda com quem tem mais de 25 anos de experiência em peelings químicos e milhares de pacientes rejuvenescidos.</p>
+            <p data-i18n="present.p2">Neste vídeo, o Dr.&nbsp;Gustavo Nogueira apresenta a técnica TL&nbsp;Peel.</p>
+            <a class="textlink" href="#imersao" data-i18n="present.link">Ver como funciona a imersão</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ RESULTADOS E DEPOIMENTOS ============ -->
+    <section class="section section--rail" id="resultados">
+      <div class="wrap head head--row">
+        <div>
+          <h2 data-i18n="results.h2">Resultados e depoimentos</h2>
+          <p data-i18n="results.lead">Resultados seguros, naturais e duradouros. Quem já viveu a imersão conta como foi.</p>
+        </div>
+        <div class="rail-nav">
+          <button type="button" data-rail="-1" aria-label="Vídeos anteriores" data-i18n-attr="aria-label:rail.prev">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M15 5l-7 7 7 7"/></svg>
+          </button>
+          <button type="button" data-rail="1" aria-label="Próximos vídeos" data-i18n-attr="aria-label:rail.next">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 5l7 7-7 7"/></svg>
+          </button>
+        </div>
+      </div>
+
+      <div class="rail">
+        <ul class="rail__track">
+          <li><button class="video video--tall" type="button" data-video="resultado1" data-title="Antes e depois: resultados do TL Peel" data-i18n-attr="data-title:video.before" data-format="vertical">
+            <span class="video__media"></span><span class="video__play" aria-hidden="true"></span>
+            <span class="video__caption"><span class="video__title" data-i18n="video.before">Antes e depois: resultados do TL&nbsp;Peel</span><span class="video__state"></span></span>
+          </button></li>
+          <li><button class="video video--tall" type="button" data-video="depoimento1" data-title="Depoimento da Dra. Camille Pompeu" data-i18n-attr="data-title:video.testimonial" data-format="vertical">
+            <span class="video__media"></span><span class="video__play" aria-hidden="true"></span>
+            <span class="video__caption"><span class="video__title" data-i18n="video.testimonial">Depoimento da Dra.&nbsp;Camille Pompeu</span><span class="video__state"></span></span>
+          </button></li>
+        </ul>
+      </div>
+
+      <p class="wrap note" data-i18n="results.note">Conteúdo técnico destinado a médicos. Os resultados variam conforme o paciente e a indicação.</p>
+    </section>
+
+    <!-- ============ PROFESSORES (seção escura: o retrato tem fundo preto) ============ -->
+    <section class="section dark" id="professores">
+      <div class="wrap">
+        <header class="head">
+          <h2 data-i18n="teachers.h2">Professores</h2>
+        </header>
+
+        <div class="profs">
+          <!-- Retrato dos dois professores, vindo de completepeel.com -->
+          <img class="profs__photo" src="assets/img/professores.png" alt="Os dois professores do curso" data-i18n-attr="alt:teachers.photo" width="542" height="805" loading="lazy">
+
+          <div class="profs__list">
+            <article class="prof">
+              <h3>Dr.&nbsp;Gustavo Carneiro Nogueira</h3>
+              <p class="prof__role" data-i18n="prof.g.role">Dermatologista, titular da Sociedade Brasileira de Dermatologia</p>
+              <p data-i18n="prof.g.bio">Médico graduado pela Universidade Federal de Minas Gerais (UFMG), com residência em Clínica Médica pelo IPSEMG e em Dermatologia pela Santa Casa de Belo Horizonte.</p>
+              <p class="prof__reg" data-i18n="prof.g.reg">CRM e RQE a preencher</p>
+              <a class="textlink" href="#" data-link="instagramGustavo" data-i18n="prof.g.link">Instagram do Dr.&nbsp;Gustavo</a>
+            </article>
+
+            <article class="prof">
+              <h3>Dra.&nbsp;Raquel Iracema Oliveira</h3>
+              <p class="prof__role" data-i18n="prof.r.role">Dermatologista, titular da Sociedade Brasileira de Dermatologia</p>
+              <p data-i18n="prof.r.bio">Médica graduada pela Universidade Federal de Minas Gerais (UFMG), com residência em Clínica Médica pelo Hospital das Clínicas da UFMG e em Dermatologia pela Santa Casa de Belo Horizonte.</p>
+              <p class="prof__reg">CRM-MG 33855, RQE 11.605</p>
+              <a class="textlink" href="#" data-link="instagramRaquel" data-i18n="prof.r.link">Instagram da Dra.&nbsp;Raquel</a>
+            </article>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ PUBLICAÇÕES CIENTÍFICAS ============ -->
+    <section class="section" id="publicacoes">
+      <div class="wrap split">
+        <header class="head">
+          <h2 data-i18n="papers.h2">Publicações científicas</h2>
+          <p data-i18n="papers.p1">Estudos publicados em revistas científicas internacionais de referência em dermatologia.</p>
+          <p data-i18n="papers.p2">Não é só experiência clínica: é ciência publicada. Do consultório para a literatura médica, e da literatura médica para a sua prática.</p>
+          <dl class="numbers">
+            <div><dd>25<span class="plus">+</span></dd><dt data-i18n="num.years">anos de experiência</dt></div>
+            <div><dd>1500<span class="plus">+</span></dd><dt data-i18n="num.cases">casos realizados</dt></div>
+            <div><dd>5</dd><dt data-i18n="num.papers">artigos científicos</dt></div>
+          </dl>
+        </header>
+
+        <!-- Os títulos dos artigos ficam em inglês, como foram publicados -->
+        <ol class="papers">
+          <li>
+            <a href="https://pubmed.ncbi.nlm.nih.gov/36865617/" target="_blank" rel="noopener" lang="en">Static glabellar lines</a>
+            <p data-i18n="paper.1">Tratamento das linhas glabelares estáticas: rugas profundas e fotodano.</p>
+            <span>JAAD International, 2022</span>
+          </li>
+          <li>
+            <a href="https://pubmed.ncbi.nlm.nih.gov/39553485/" target="_blank" rel="noopener" lang="en">Nasal crease</a>
+            <p data-i18n="paper.2">Tratamento da prega nasal alérgica, condição frequente e com poucas opções descritas na literatura.</p>
+            <span>JAAD International, 2024</span>
+          </li>
+          <li>
+            <a href="https://pubmed.ncbi.nlm.nih.gov/39400413/" target="_blank" rel="noopener" lang="en">Bunny lines</a>
+            <p data-i18n="paper.3">Tratamento das linhas nasais com óleo de cróton a 1% (fórmula de Hetter).</p>
+            <span>Journal of Cosmetic Dermatology, 2024</span>
+          </li>
+          <li>
+            <a href="https://pubmed.ncbi.nlm.nih.gov/41582656/" target="_blank" rel="noopener" lang="en">Retrospective study of 102 patients</a>
+            <p data-i18n="paper.4">Resultados de longo prazo e satisfação dos pacientes com peelings de fenol-cróton.</p>
+            <span>Journal of Cosmetic Dermatology, 2026</span>
+          </li>
+          <li>
+            <a href="https://pubmed.ncbi.nlm.nih.gov/41854485/" target="_blank" rel="noopener" lang="en">Rejuvenating the periocular region with a TCA-croton oil peel</a>
+            <p data-i18n="paper.5">Peeling de TCA e óleo de cróton na região periocular.</p>
+            <span>Dermatologic Surgery, 2026</span>
+          </li>
+        </ol>
+      </div>
+    </section>
+
+    <!-- ============ A IMERSÃO ============ -->
+    <section class="section" id="imersao">
+      <div class="wrap">
+        <header class="head">
+          <h2 data-i18n="course.h2">A imersão</h2>
+          <p data-i18n="course.lead">Como o curso funciona, da sala de aula aos seus primeiros pacientes.</p>
+        </header>
+
+        <!-- Foto de uma edição da imersão, vinda de completepeel.com -->
+        <figure class="photo">
+          <img src="assets/img/imersao.jpg" alt="Professores e alunos reunidos em uma sala da clínica durante a imersão" data-i18n-attr="alt:course.photo" width="1800" height="1200" loading="lazy">
+          <figcaption data-i18n="course.caption">Turma durante uma edição da imersão.</figcaption>
+        </figure>
+
+        <div class="split split--even">
+          <ol class="program">
+            <li><h3 data-i18n="prog.1.h">Dois dias presenciais</h3><p data-i18n="prog.1.p">Imersão em peelings químicos na Clínica Completa.</p></li>
+            <li><h3>Hands-on</h3><p data-i18n="prog.2.p">Prática durante a imersão, acompanhada pelos professores.</p></li>
+            <li><h3 data-i18n="prog.3.h">Seis meses de mentoria</h3><p data-i18n="prog.3.p">Acompanhamento para os seus primeiros pacientes depois do curso.</p></li>
+          </ol>
+
+          <dl class="facts">
+            <div><dt data-i18n="fact.audience.t">Público</dt><dd data-i18n="fact.audience.d">Exclusivo para médicos</dd></div>
+            <div><dt data-i18n="fact.place.t">Local</dt><dd data-i18n="fact.place.d">Clínica Completa, em Itaúna (MG)</dd></div>
+            <div><dt data-i18n="fact.next.t">Próxima turma</dt><dd data-i18n="fact.next.d">Lista de espera aberta</dd></div>
+          </dl>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ INSCRIÇÃO ============ -->
+    <section class="close dark" id="inscricao">
+      <div class="wrap">
+        <h2 class="close__title" data-i18n="close.title">Próxima turma</h2>
+        <p class="close__lead" data-i18n="close.lead">Entre na lista de espera para ser avisado quando abrirem novas vagas, ou fale direto com a equipe do curso.</p>
+        <div class="actions">
+          <a class="btn btn--solid" href="#" data-link="whatsapp" data-i18n="cta.whatsapp">Falar no WhatsApp</a>
+          <a class="btn btn--line" href="#" data-link="listaEspera" data-i18n="close.waitlist">Entrar na lista de espera</a>
+        </div>
+        <p class="close__where"><a class="textlink" href="#" data-link="localizacao" data-i18n="close.where">Como chegar à Clínica Completa</a></p>
+      </div>
+    </section>
+  </main>
+
+  <!-- ============ RODAPÉ ============ -->
+  <footer class="footer dark">
+    <div class="wrap footer__grid">
+      <p class="footer__brand">
+        <span class="wm" aria-hidden="true"><span class="wm__c">COMPLETE</span><span class="wm__p">peel</span></span>
+        <span class="footer__by" data-i18n="footer.brand">Um curso da Clínica Completa</span>
+      </p>
+      <nav class="footer__links" aria-label="Redes e contato" data-i18n-attr="aria-label:footer.nav">
+        <a href="#" data-link="instagramCurso" data-i18n="footer.ig">Instagram do curso</a>
+        <a href="#" data-link="instagramGustavo">Dr.&nbsp;Gustavo Nogueira</a>
+        <a href="#" data-link="instagramRaquel">Dra.&nbsp;Raquel Iracema</a>
+        <a href="#" data-link="whatsapp">WhatsApp</a>
+      </nav>
+      <p class="footer__legal" data-i18n="footer.legal">© 2026 Clínica Completa. Conteúdo destinado exclusivamente a médicos. Responsável técnico e CRM a preencher.</p>
+    </div>
+  </footer>
+
+  <!-- ============ PLAYER DE VÍDEO ============ -->
+  <dialog class="player" id="player" aria-label="Vídeo">
+    <button class="player__close" type="button" data-i18n="player.close">Fechar vídeo</button>
+    <div class="player__frame"></div>
+  </dialog>
+
+  <div class="toast" role="status" aria-live="polite"></div>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+  <script src="js/config.js?v=3"></script>
+  <script src="js/i18n.js?v=3"></script>
+  <script src="js/main.js?v=3"></script>
+</body>
+</html>
